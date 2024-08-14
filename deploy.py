@@ -3,6 +3,7 @@ import pickle
 from flask import Flask, render_template, request
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+from playsound import playsound
 
 
 app=Flask(__name__)
@@ -35,8 +36,10 @@ def predict():
 
     if review_predict[0] == 1:
         result = "It's a negative review"
+        playsound('0.mp3')
     else:
         result = "It's a positive review"
+        playsound('1.mp3')
 
     return render_template('index.html', **locals())
 
