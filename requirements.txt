@@ -5,3 +5,5 @@ requests
 tensorflow
 pandas
 playsound==1.2.2
+vext
+vext.gi
