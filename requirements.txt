@@ -4,4 +4,4 @@ gunicorn
 requests
 tensorflow
 pandas
-playsound==1.2.2
+
