@@ -3,10 +3,9 @@ import pickle
 from flask import Flask, render_template, request
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from playsound import playsound
 
 
-app=Flask(__name__)
+app=Flask(__name__,  static_folder='static')
 model = pickle.load(open('model.pkl', 'rb'))
 trip = pd.read_csv('tripadvisor_hotel_reviews.csv')
 tokenizer = Tokenizer()
@@ -36,12 +35,12 @@ def predict():
 
     if review_predict[0] == 1:
         result = "It's a negative review"
-        playsound('0.mp3')
+        audio_file = '0.mp3'
     else:
         result = "It's a positive review"
-        playsound('1.mp3')
+        audio_file = '1.mp3'
 
-    return render_template('index.html', **locals())
+    return render_template('index.html', audio_file=audio_file)
 
 if __name__ == '__main__':
     app.run()
