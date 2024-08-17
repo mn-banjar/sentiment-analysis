@@ -1,7 +1,6 @@
 ﻿
 Flask
 gunicorn
-requests
 tensorflow
 pandas
 
