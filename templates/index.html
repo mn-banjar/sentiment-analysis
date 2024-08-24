@@ -3,11 +3,20 @@
     <body>
         <h3>Sentiment Analysis NLP</h3>
 
+        <script src="/static/script.js" charset="utf-8"></script> 
+
+        <div>
+            Record comment: <br>
+            <button onclick="startt()">Start</button>
+            <br>
+            <p id = "instructions">Record</p>
+        </div>
+        
         <div>
             <form action='/predict' method="POST">
 
                 Write comment: <br>
-                <textarea name="comment" rows="10" cols="30" required></textarea>  <br><br>
+                <textarea id = "txtarea" name="comment" rows="10" cols="30" required></textarea>  <br><br>
 
 				<audio autoplay>
 				  <source src={{ url_for('static', filename=audio_file) }}>
@@ -21,6 +30,8 @@
 
             </form>
         </div>
+
+        
         
     </body>
 
